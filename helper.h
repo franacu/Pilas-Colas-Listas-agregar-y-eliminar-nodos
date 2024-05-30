@@ -27,5 +27,15 @@ Nodo *newNodo(int num);
 Lista *newLista();
 Pila *newPila();
 Cola *newCola();
+void agregarLista(Lista *lista,Nodo *nodoAI);
+void eliminarLista(Lista *lista,Nodo *nodoAE);
+void pushPila(Pila *pila,Nodo *nodoAI);
+void popPila(Pila *pila);
+void Enque(Cola *cola,Nodo *nodoAI);
+void Deque(Cola *cola);
+void imprimirC(Cola *cola);
+void imprimirP(Pila *pila);
+void imprimir(Lista *lista);
+
 
 #endif //PILASCOLASDE0_HELPER_H

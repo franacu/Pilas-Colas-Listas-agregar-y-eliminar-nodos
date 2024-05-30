@@ -62,10 +62,8 @@ void agregarLista(Lista *lista,Nodo *nodoAI)
     }else
         {
             Nodo *act=lista->cab;
-            Nodo *ant=act;
             while(act->sig!=NULL)
             {
-                ant=act;
                 act=act->sig;
             }
             act->sig=nodoAI;
@@ -88,11 +86,13 @@ void eliminarLista(Lista *lista,Nodo *nodoAE)
                 }
             free(act);
         }
+        ant=act;
+        act=act->sig;
     }
 }
 void pushPila(Pila *pila,Nodo *nodoAI)
 {
-    if(pila->tope=NULL)
+    if(pila->tope==NULL)
     {
         pila->tope=nodoAI;
     }else
@@ -132,8 +132,39 @@ void Deque(Cola *cola)
         printf("Cola vacia\n");
     }else
         {
-            Nodo *aux=cola->cola;
-            cola->cola=aux->sig;
+            Nodo *aux=cola->cab;
+            cola->cab=aux->sig;
             free(aux);
         }
+}
+void imprimir(Lista *lista)
+{
+    Nodo *aux=lista->cab;
+    printf("\nLista:\n");
+    while (aux!=NULL)
+    {
+        printf("--%d--",aux->num);
+        aux=aux->sig;
+    }
+}
+void imprimirP(Pila *pila)
+{
+    Nodo *aux=pila->tope;
+    printf("\nPila:\n");
+    while (aux!=NULL)
+    {
+        printf("\nPila:\n");
+        printf("--%d--",aux->num);
+        aux=aux->sig;
+    }
+}
+void imprimirC(Cola *cola)
+{
+    Nodo *aux=cola->cab;
+    printf("\nCola:\n");
+    while (aux!=NULL)
+    {
+        printf("--%d--",aux->num);
+        aux=aux->sig;
+    }
 }
